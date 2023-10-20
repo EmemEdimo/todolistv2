@@ -21,18 +21,23 @@ window.addEventListener('load', () => {
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const todo = {
-      content: e.target.elements.content.value,
-      category: e.target.elements.category.value,
-      done: false,
-      createdAt: new Date().getTime(),
-    };
+    if (
+      e.target.elements.content.value !== '' &&
+      e.target.elements.category.value !== ''
+    ) {
+      const todo = {
+        content: e.target.elements.content.value,
+        category: e.target.elements.category.value,
+        done: false,
+        createdAt: new Date().getTime(),
+      };
 
-    //add new todo item to the todos array
-    todos.push(todo);
+      //add new todo item to the todos array
+      todos.push(todo);
 
-    //add new todo item to local storage
-    localStorage.setItem('todos', JSON.stringify(todos));
+      //add new todo item to local storage
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
 
     e.target.reset();
 
@@ -84,5 +89,18 @@ const renderTodos = function () {
     task.appendChild(content);
     task.appendChild(controls);
     tasks.appendChild(task);
+
+    if (todo.done) {
+      task.classList.add('done');
+    }
+
+    input.addEventListener('click', (e) => {
+      todo.done = e.target.checked;
+      localStorage.setItem('todos', JSON.stringify(todos));
+
+      task.classList.toggle('done');
+
+      renderTodos();
+    });
   });
 };

@@ -17,10 +17,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "montserrat", sans-serif;
+  font-family: 'montserrat', sans-serif;
 }
 
-input:not([type="radio"]):not([type="checkbox"]),
+input:not([type='radio']):not([type='checkbox']),
 button {
   appearance: none;
   border: none;
@@ -72,7 +72,7 @@ h4 {
   font-weight: 700;
 }
 
-.create-task input[type="text"] {
+.create-task input[type='text'] {
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -104,8 +104,8 @@ h4 {
 }
 
 /*Remove the radio and checkbox then create a custom one*/
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   display: none;
 }
 
@@ -127,7 +127,7 @@ input[type="checkbox"] {
 }
 
 .bubble::after {
-  content: "";
+  content: '';
   display: block;
   opacity: 0;
   width: 0;
@@ -155,7 +155,7 @@ input:checked ~ .bubble::after {
   margin-top: 1rem;
 }
 
-.create-task input[type="submit"] {
+.create-task input[type='submit'] {
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -168,7 +168,7 @@ input:checked ~ .bubble::after {
   transition: 0.2s ease-in-out;
 }
 
-.create-task input[type="submit"]:hover {
+.create-task input[type='submit']:hover {
   opacity: 0.75;
 }
 
@@ -229,7 +229,7 @@ input:checked ~ .bubble::after {
   background-color: var(--danger);
 }
 
-.todo-content.done .todo-content input {
+.todo-item.done .todo-content input {
   text-decoration: line-through;
   color: var(--gray);
 }
