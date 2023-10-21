@@ -195,16 +195,23 @@ input:checked ~ .bubble::after {
 
 .todo-item .todo-content {
   flex: 1 1 0%;
+  width: 70%;
 }
 
-.todo-item .todo-content input {
+.todo-item .todo-content textarea {
   color: var(--dark);
   font-size: 1.125rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding-top: 0.8rem;
 }
 
 .todo-item .controls {
   display: flex;
   align-items: center;
+  /* border: 1px solid blue; */
 }
 
 .todo-item .controls button {
@@ -229,7 +236,50 @@ input:checked ~ .bubble::after {
   background-color: var(--danger);
 }
 
-.todo-item.done .todo-content input {
+.todo-item.done .todo-content textarea {
   text-decoration: line-through;
   color: var(--gray);
+}
+
+@media (max-width: 400px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  h3 {
+    font-size: 0.8rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+  .welcome .title,
+  .welcome .title input {
+    font-size: 1.2rem;
+  }
+
+  .create-task .category label {
+    padding: 0.8rem;
+  }
+
+  .create-task .category label div {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .todo-item .todo-content textarea {
+    font-size: 1rem;
+  }
+
+  .todo-item .controls button {
+    padding: 0.3rem;
+  }
+
+  .todo-list .todo-item {
+    padding: 0.5rem;
+  }
+
+  .todo-item label {
+    margin-right: 0.5rem;
+  }
 }

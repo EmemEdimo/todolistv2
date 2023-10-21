@@ -77,7 +77,8 @@ const renderTodos = function () {
     btnDelete.classList.add('delete');
     btnEdit.classList.add('edit');
 
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly />`;
+    // content.innerHTML = `<input type="text" value="${todo.content}" readonly />`;
+    content.innerHTML = `<textarea disabled>${todo.content}</textarea>`;
     btnDelete.innerHTML = 'Delete';
     btnEdit.innerHTML = 'Edit';
 
@@ -104,12 +105,13 @@ const renderTodos = function () {
     });
 
     btnEdit.addEventListener('click', (e) => {
-      const input = content.querySelector('input');
-      input.removeAttribute('readonly');
-      input.focus();
+      // const input = content.querySelector('input');
+      const taskDetail = content.querySelector('textarea');
+      taskDetail.removeAttribute('disabled');
+      taskDetail.focus();
 
-      input.addEventListener('blur', (e) => {
-        input.setAttribute('readonly', 'true');
+      taskDetail.addEventListener('blur', (e) => {
+        taskDetail.setAttribute('disabled', 'true');
         todo.content = e.target.value;
         localStorage.setItem('todos', JSON.stringify(todos));
 
